@@ -1,118 +1,346 @@
-import Image from "next/image";
-import { Inter } from "next/font/google";
+// import Image from "next/image"
 
-const inter = Inter({ subsets: ["latin"] });
+import Separator from 'components/Separator'
+import Tag from 'components/Tag'
+
+const links = {
+  email: 'mduhamel31@gmail.com',
+  linkedin: 'https://www.linkedin.com/in/duhamel-maxime/',
+  maps: 'https://www.google.com/maps/place/Toulouse/@43.6005854,1.2683801,11z/data=!3m1!4b1!4m6!3m5!1s0x12aebb6fec7552ff:0x406f69c2f411030!8m2!3d43.604652!4d1.444209!16zL20vMGNiaGg?entry=ttu',
+}
+
+const skills = {
+  base: [
+    'JavaScript',
+    'TypeScript',
+  ],
+  general: [
+    'Agile',
+    'APIs',
+    'CI/CD',
+    'UI/UX',
+  ],
+  front: [
+    'React',
+    'Next',
+    'HTML5',
+    'CSS3',
+    'Sass',
+    'TailwindCSS',
+    'Babel, Gulp, Webpack',
+  ],
+  back: [
+    'Node',
+    'Express',
+    'Koa',
+  ],
+  dbs: [
+    'PostgreSQL (Sequelize)',
+    'MongoDB (Mongoose)',
+  ],
+  other: [
+    'Mac',
+    'Linux',
+    'Docker',
+    'AWS',
+    'G-Cloud',
+    'Github',
+    'Gitlab',
+    'Jenkins',
+    'Metabase',
+    'Slack',
+    'Notion',
+  ]
+}
 
 export default function Home() {
   return (
-    <main
-      className={`flex min-h-screen flex-col items-center justify-between p-24 ${inter.className}`}
-    >
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">pages/index.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/cv/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <main className="flex justify-center content-center">
+      <div className="m-5 xs:m-10 p-4 xs:p-8 border-4 border-gray-700 rounded-2xl shadow-xl">
+
+        <header>
+          <div className="flex justify-between items-center">
+            <div className="mr-8">
+              <div
+                className="h-32 w-32 bg-cover bg-no-repeat rounded-full border-2 border-gray-700"
+                style={{
+                  backgroundImage: `url('picture.png')`,
+                }}
+              />
+            </div>
+            <div className="flex flex-col lg:items-end space-y-2">
+              <h1 className="text-2xl sm:text-5xl md:text-6xl font-extrabold">Duhamel Maxime</h1>
+              <h2 className="text-2xl">Full-Stack JS Developer</h2>
+              <h2 className="text-lg">10 years of experience</h2>
+            </div>
+          </div>
+        </header>
+
+        <div className="flex flex-col md:flex-row">
+
+          <div className="md:mt-10 md:w-2/6 md:mr-10">
+            <Separator classes="md:hidden"/>
+            <h2 className="text-2xl font-bold">Contact Details</h2>
+            <ul className="mt-2 space-y-1">
+              <li className="">
+                <span className="text-md font-bold">Phone : </span>
+                <a href="tel:0640654963" className="text-purple-600 hover:underline">
+                  06 40 65 49 63
+                </a>
+              </li>
+              <li className="">
+                <span className="text-md font-bold">E-mail : </span>
+                <a
+                  href={`mailto:${links.email}`}
+                  className="text-purple-600 hover:underline"
+                >
+                  {links.email}
+                </a>
+              </li>
+              <li className="">
+                <span className="text-md font-bold">Linkedin : </span>
+                <a
+                  className="text-purple-600 hover:underline"
+                  href={links.linkedin}
+                  target="_blank"
+                >
+                  duhamel-maxime
+                </a>
+              </li>
+              <li className="">
+                <span className="text-md font-bold">Location : </span>
+                <a
+                  href={links.maps}
+                  className="text-purple-600 hover:underline"
+                  target="_blank"
+                >
+                  Toulouse, France
+                </a>
+              </li>
+            </ul>
+
+            <Separator />
+
+            <h2 className="text-2xl font-bold">Skills</h2>
+            <ul className="mt-2 flex flex-wrap font-bold- text-xs">
+              {skills.base.map((label, index) => (
+                <Tag key={index} color='red' classes='mr-1'>{label}</Tag>
+              ))}
+              {skills.general.map((label, index) => (
+                <Tag key={index} color='yellow' classes='mr-1'>{label}</Tag>
+              ))}
+              {skills.front.map((label, index) => (
+                <Tag key={index} color='green' classes='mr-1'>{label}</Tag>
+              ))}
+              {skills.back.map((label, index) => (
+                <Tag key={index} color='blue' classes='mr-1'>{label}</Tag>
+              ))}
+              {skills.dbs.map((label, index) => (
+                <Tag key={index} color='purple' classes='mr-1'>{label}</Tag>
+              ))}
+              {skills.other.map((label, index) => (
+                <Tag key={index} color='gray' classes='mr-1'>{label}</Tag>
+              ))}
+            </ul>
+
+            <Separator />
+
+            <h2 className="text-2xl font-bold">Interests & Hobbies</h2>
+            <ul className="ml-4 mt-2 list-disc">
+              <li className="">
+                Sports : climbing, trail, mountain bike, hiking, snowboard, apnea,
+                kayak ..
+              </li>
+              <li className="">New technologies</li>
+              <li className="">Music</li>
+              <li className="">Videos & Board games</li>
+              <li className="">Ecology</li>
+              <li className="">Gastronomy & cooking</li>
+              <li className="">Travels</li>
+            </ul>
+          </div>
+
+          <div className="md:mt-10 md:w-4/6">
+            <section>
+              <Separator classes="md:hidden"/>
+
+              <h2 className="text-2xl pb-1 font-bold">Summary</h2>
+              <p className="text-md">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Expedita delectus labore enim in minus quod vero dignissimos
+                et, ratione obcaecati quis maiores? Voluptatem, natus
+                cupiditate perferendis omnis ex hic incidunt! Earum dolore
+                cupiditate sed et maxime distinctio iure fugiat aspernatur at
+                veniam laudantium eveniet corporis dicta reiciendis quod
+                consequatur, labore perferendis dolorum velit quibusdam minus
+                iste dolorem! Officiis, obcaecati maxime
+              </p>
+            </section>
+
+            <Separator />
+
+            <section>
+              <h2 className="text-2xl mt-4 font-bold">
+                Work Experience
+              </h2>
+              <ul className="mt-2">
+                <li className="pt-2-">
+                  <span className="flex justify-between text-sm">
+                    <a
+                      href="https://www.linkedin.com/company/maestro-corporation/"
+                      target="_blank"
+                      className="text-purple-600 hover:underline"
+                    >
+                      <strong className="text-xl">Maestro Corporation</strong>
+                    </a>
+                    November 2015 - June 2023 | OEC
+                  </span>
+                  <span className="flex justify-between mt-1 text-md font-semibold">
+                    <span>Full-stack JS Developer</span>
+                    <span>Toulouse, France</span>
+                  </span>
+                  <p className="mt-1 text-justify text-md">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Expedita delectus labore enim in minus quod vero dignissimos
+                    et, ratione obcaecati quis maiores?
+                  </p>
+                </li>
+
+                <li className="mt-4">
+                  <span className="flex justify-between text-sm">
+                    <a
+                      href="https://www.netexplorer.fr/en/"
+                      target="_blank"
+                      className="text-purple-600 hover:underline"
+                    >
+                      <strong className="text-xl">NetExplorer</strong>
+                    </a>
+                    June 2012 - August 2014 | INT
+                  </span>
+                  <span className="flex justify-between mt-1 text-md font-semibold">
+                    <span>Junior Web Developer</span>
+                    <span>Colomiers, France</span>
+                  </span>
+                  <p className="mt-1 text-justify text-xs-">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Expedita delectus labore enim in minus quod vero dignissimos
+                    et, ratione obcaecati quis maiores?
+                  </p>
+                </li>
+
+                <li className="mt-4">
+                  <span className="flex justify-between text-sm">
+                    <a
+                      href="https://www.linkedin.com/search/results/all/?keywords=Neventy&sid=Drv"
+                      target="_blank"
+                      className="text-purple-600 hover:underline"
+                    >
+                      <strong className="text-xl">Neventy</strong>
+                    </a>
+                    January 2013 - June 2013 | INT
+                  </span>
+                  <span className="flex justify-between mt-1 text-md font-semibold">
+                    <span>Toulouse, France</span>
+                    <span>Front-End Developer</span>
+                  </span>
+                  <p className="mt-1 text-justify text-xs-">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Expedita delectus labore enim in minus quod vero dignissimos
+                    et, ratione obcaecati quis maiores?
+                  </p>
+                </li>
+
+                <li className="mt-4">
+                  <p className="flex justify-between text-sm">
+                    <a
+                      href="https://www.linkedin.com/company/actemiumtoulouserobotique&automation/"
+                      target="_blank"
+                      className="text-purple-600 hover:underline"
+                    >
+                      <strong className="text-xl">Actemium Toulouse Robotique & Automation</strong>
+                    </a>
+                    June 2012 - September 2012 | INT
+                  </p>
+                  <p className="flex justify-between mt-1 text-md font-semibold">
+                    <span>System Developer</span>
+                    <span>Toulouse, France</span>
+                  </p>
+                  <p className="mt-1 text-justify text-xs-">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Expedita delectus labore enim in minus quod vero dignissimos
+                    et, ratione obcaecati quis maiores?
+                  </p>
+                </li>
+
+                <li className="mt-4">
+                  <span className="flex justify-between text-sm">
+                    <a
+                      href="https://www.linkedin.com/company/utilib/"
+                      target="_blank"
+                      className="text-purple-600 hover:underline"
+                    >
+                      <strong className="text-xl">Utilib</strong>
+                    </a>
+                    January 2012 - March 2012 | INT
+                  </span>
+                  <span className="flex justify-between mt-1 text-md font-semibold">
+                    <span>Full-Stack Developer</span>
+                    <span>Labège, France</span>
+                  </span>
+                  <p className="mt-1 text-justify text-xs-">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Expedita delectus labore enim in minus quod vero dignissimos
+                    et, ratione obcaecati quis maiores?
+                  </p>
+                </li>
+
+              </ul>
+            </section>
+
+            <Separator />
+
+            <section>
+              <h2 className="text-2xl mt-6 font-bold">Education</h2>
+              <ul className="mt-2">
+                <li className="">
+                  <p className="flex justify-between text-sm">
+                    <a
+                      href="https://www.supinfo.com/"
+                      target="_blank"
+                      className="text-purple-600 hover:underline"
+                    >
+                      <strong className="text-xl">SUPINFO</strong>
+                    </a>
+                    2012 - 2015
+                  </p>
+                  <p className="flex justify-between font-semibold">
+                    <span className="text-md">Master 1</span>
+                    <span>Toulouse, France</span>
+                  </p>
+                </li>
+                <li className="pt-2">
+                  <p className="flex justify-between text-sm">
+                    <a
+                      href="https://www.iut-blagnac.fr/fr/"
+                      target="_blank"
+                      className="text-purple-600 hover:underline"
+                    >
+                      <strong className="text-xl">University Institute of Technology</strong>
+                    </a>
+                    2010-2012
+                  </p>
+                  <p className="flex justify-between font-semibold">
+                    <span className="text-md">University diploma in computer technology</span>
+                    <span>Blagnac, France</span>
+                  </p>
+                </li>
+              </ul>
+            </section>
+          </div>
+
         </div>
-      </div>
 
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-full sm:before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full sm:after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700/10 after:dark:from-sky-900 after:dark:via-[#0141ff]/40 before:lg:h-[360px]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/cv/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Discover and deploy boilerplate example Next.js&nbsp;projects.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50 text-balance`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
       </div>
     </main>
-  );
+  )
 }

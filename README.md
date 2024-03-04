@@ -1,40 +1,53 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# TBD
 
-## Getting Started
-
-First, run the development server:
+## Launch
 
 ```bash
+# starts a development server with development ENVs
+# => NODE_ENV:development | APP_ENV:dev
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
+# same but in verbose mode : Node, Sequelize, NextAuth, ...
+npm run debug
+
+# builds & starts a production server with development ENVs
+# => NODE_ENV:production | APP_ENV:dev
+npm run build:dev && npm run start:dev
 ```
+> [localhost:3000](http://localhost:3000)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Analyse
+```bash
+npm run analyze:dev
+```
+> will build & open [client](.next/analyze/client.html) / [server](.next/analyze/server.html) bundles in default browser
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+## Tools
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+### Libraries
+- [@next/bundle-analyzer](https://github.com/vercel/next.js/tree/canary/packages/next-bundle-analyzer)
+- [react-icons](https://github.com/icons8/flat-color-icons) ([list](https://react-icons.github.io/react-icons/icons))
+- [tailwindcss](https://tailwindcss.com/docs)
+  * [optimizing-for-production](https://tailwindcss.com/docs/optimizing-for-production)
+- [lodash v4](https://lodash.com/docs/4.17.15)
+  * use [require](https://lodash.com/per-method-packages) to optimize (or like [this](https://dev.to/payapula/minimizing-lodash-size-in-cra-and-next-js-5598))
+- [pony-cause](https://github.com/voxpelli/pony-cause) nested errors
+- [react-tostify](https://github.com/fkhadra/react-toastify) [(documentation)](https://fkhadra.github.io/react-toastify/introduction])
+- [react-query](https://github.com/tannerlinsley/react-query) [(documentation)](https://react-query.tanstack.com/)
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+### ESLint
+- [@next/eslint-plugin-next](https://nextjs.org/docs/basic-features/eslint)
+- [own rules](./.eslintrc.json)
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+### VS Code plugins
+- [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
+- [Path Intellisense](https://marketplace.visualstudio.com/items?itemName=christian-kohler.path-intellisense)
+- [NPM Intellisense](https://marketplace.visualstudio.com/items?itemName=christian-kohler.npm-intellisense)
+- [Tailwind IntelliSense](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss)
+- [Atom Keymap](https://marketplace.visualstudio.com/items?itemName=ms-vscode.atom-keybindings)
+- [ES7 React/Redux/GraphQL/React-Native Snippets](https://marketplace.visualstudio.com/items?itemName=dsznajder.es7-react-js-snippets)
+- [NextJS/React Snippets](https://marketplace.visualstudio.com/items?itemName=iJS.reactnextjssnippets)
+- [Better Comments](https://marketplace.visualstudio.com/items?itemName=aaron-bond.better-comments)
+- [Headwind](https://marketplace.visualstudio.com/items?itemName=heybourn.headwind) (only [v2](https://github.com/heybourn/headwind/files/6361713/headwind-2.0.0.vsix.zip) is able to parse clsx calls ⚠️)
+- [Color Highlight](https://marketplace.visualstudio.com/items?itemName=naumovs.color-highlight)
+- [Stylelint](https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint) => [config](https://stylelint.io/user-guide/configure/)
