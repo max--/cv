@@ -32,9 +32,12 @@ const skills = {
     'CSS3',
     'Sass',
     'TailwindCSS',
-    'Babel, Gulp, Webpack',
+    'Babel',
+    'Gulp',
+    'Webpack',
   ],
   back: [
+    'Node',
     'Node',
     'Express',
     'Koa',
@@ -51,6 +54,7 @@ const skills = {
     'G-Cloud',
     'Github',
     'Gitlab',
+    'RabbitMQ',
     'Jenkins',
     'Metabase',
     'Slack',
@@ -201,8 +205,7 @@ export default function Home() {
               <h2 className="text-2xl font-bold">Interests & Hobbies</h2>
               <ul className="ml-4 mt-2 list-disc">
                 <li className="">
-                  Sports : climbing, trail, mountain bike, hiking, snowboard, apnea,
-                  kayak ..
+                  Sports : climbing, trail, mountain bike, hiking, snowboard, apnea, kayak
                 </li>
                 <li className="">New technologies</li>
                 <li className="">Music</li>
