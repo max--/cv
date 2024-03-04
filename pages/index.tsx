@@ -79,9 +79,8 @@ export default function Home() {
   )
 
   return (
-    <main className="flex justify-center content-center dark:bg-slate-700">
+    <main className="flex justify-center content-center bg-stone-500 dark:bg-slate-700">
       <button
-        // className={`w-fit absolute right-5 top-2 p-2 rounded-md bg-slate-200 dark:bg-[#212933]`}
         className="w-fit absolute top-2 px-4 py-1 rounded-md border-2 border-black bg-stone-200 text-black dark:bg-slate-700 dark:text-white hover:scale-110 active:scale-100 duration-200"
         onClick={handleSetTheme}
       >
@@ -91,7 +90,7 @@ export default function Home() {
         }
       </button>
 
-      <div className="m-5 xs:m-10 p-4 xs:p-8 border-4 border-gray-700 rounded-2xl shadow-xl dark:bg-stone-600 dark:border-black dark:text-white">
+      <div className="m-5 xs:m-10 p-4 xs:p-8 bg-stone-300 border-4 border-gray-700 rounded-2xl shadow-xl dark:bg-stone-600 dark:border-black dark:text-white">
         <header>
           <div className="flex justify-between items-center">
             <div className="mr-8">

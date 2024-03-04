@@ -61,8 +61,8 @@ const Tag = ({
 
     case 'black':
       colorClasses = clsx(
-        'bg-black ring-gray-700 dark:bg-slate-800',
-        'hover:bg-gray-500 hover:dark:bg-black'
+        'bg-slate-800 ring-gray-700 dark:bg-slate-800',
+        'hover:bg-black hover:dark:bg-black'
       )
       break
 
