@@ -9,6 +9,7 @@ const config: Config = {
     "./app/**/*.tsx",
     "./img/**/*.png",
   ],
+  darkMode: 'class',
   theme: {
     colors: {
       transparent: 'transparent',
@@ -22,10 +23,12 @@ const config: Config = {
       purple: colors.violet,
       yellow: colors.amber,
       pink: colors.fuchsia,
+      slate: colors.slate,
+      stone: colors.stone,
+      zinc: colors.zinc,
     },
     extend: {
       backgroundImage: {
-        // 'img-picture' : "url('img/picture.png')",
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",

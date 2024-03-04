@@ -1,4 +1,9 @@
-// import Image from "next/image"
+import { useCallback, useState } from "react"
+import { FaLinkedin, FaSun } from 'react-icons/fa'
+import { FaLocationDot } from 'react-icons/fa6'
+import { GiSmartphone } from 'react-icons/gi'
+import { MdDarkMode } from 'react-icons/md'
+import { SiMaildotru } from 'react-icons/si'
 
 import Separator from 'components/Separator'
 import Tag from 'components/Tag'
@@ -54,10 +59,35 @@ const skills = {
 }
 
 export default function Home() {
-  return (
-    <main className="flex justify-center content-center">
-      <div className="m-5 xs:m-10 p-4 xs:p-8 border-4 border-gray-700 rounded-2xl shadow-xl">
+  const [theme, setTheme] = useState('light')
 
+  const handleSetTheme = useCallback(
+    () => {
+      const newTheme = theme === 'dark' ? 'light' : 'dark'
+      if (newTheme === 'dark') {
+        document.documentElement.classList.add('dark')
+      } else {
+        document.documentElement.classList.remove('dark')
+      }
+      setTheme(newTheme)
+    },
+    [theme]
+  )
+
+  return (
+    <main className="flex justify-center content-center dark:bg-slate-700">
+      <button
+        // className={`w-fit absolute right-5 top-2 p-2 rounded-md bg-slate-200 dark:bg-[#212933]`}
+        className="w-fit absolute top-2 px-4 py-1 rounded-md border-2 border-black bg-stone-200 text-black dark:bg-slate-700 dark:text-white hover:scale-110 active:scale-100 duration-200"
+        onClick={handleSetTheme}
+      >
+        { theme === 'light'
+          ? <MdDarkMode />
+          : <FaSun />
+        }
+      </button>
+
+      <div className="m-5 xs:m-10 p-4 xs:p-8 border-4 border-gray-700 rounded-2xl shadow-xl dark:bg-stone-600 dark:border-black dark:text-white">
         <header>
           <div className="flex justify-between items-center">
             <div className="mr-8">
@@ -80,90 +110,113 @@ export default function Home() {
 
           <div className="md:mt-10 md:w-2/6 md:mr-10">
             <Separator classes="md:hidden"/>
-            <h2 className="text-2xl font-bold">Contact Details</h2>
-            <ul className="mt-2 space-y-1">
-              <li className="">
-                <span className="text-md font-bold">Phone : </span>
-                <a href="tel:0640654963" className="text-purple-600 hover:underline">
-                  06 40 65 49 63
-                </a>
-              </li>
-              <li className="">
-                <span className="text-md font-bold">E-mail : </span>
-                <a
-                  href={`mailto:${links.email}`}
-                  className="text-purple-600 hover:underline"
-                >
-                  {links.email}
-                </a>
-              </li>
-              <li className="">
-                <span className="text-md font-bold">Linkedin : </span>
-                <a
-                  className="text-purple-600 hover:underline"
-                  href={links.linkedin}
-                  target="_blank"
-                >
-                  duhamel-maxime
-                </a>
-              </li>
-              <li className="">
-                <span className="text-md font-bold">Location : </span>
-                <a
-                  href={links.maps}
-                  className="text-purple-600 hover:underline"
-                  target="_blank"
-                >
-                  Toulouse, France
-                </a>
-              </li>
-            </ul>
+
+            <section>
+              <h2 className="text-2xl font-bold">Contact</h2>
+              <ul className="mt-2 space-y-2">
+                <li className="flex items-center space-x-2">
+                  <GiSmartphone className="text-xl"/>
+                  <a href="tel:0640654963" className="text-purple-600 hover:underline dark:text-purple-300">
+                    06 40 65 49 63
+                  </a>
+                </li>
+                <li className="flex items-center space-x-2">
+                  <SiMaildotru className="text-xl"/>
+                  <a
+                    href={`mailto:${links.email}`}
+                    className="text-purple-600 hover:underline dark:text-purple-300"
+                  >
+                    {links.email}
+                  </a>
+                </li>
+                <li className="flex items-center space-x-2">
+                  <FaLinkedin className="text-xl"/>
+                  <a
+                    className="text-purple-600 hover:underline dark:text-purple-300"
+                    href={links.linkedin}
+                    target="_blank"
+                  >
+                    duhamel-maxime
+                  </a>
+                </li>
+                <li className="flex items-center space-x-2">
+                  <FaLocationDot className="text-xl"/>
+                  <a
+                    href={links.maps}
+                    className="text-purple-600 hover:underline dark:text-purple-300"
+                    target="_blank"
+                  >
+                    Toulouse, France
+                  </a>
+                </li>
+              </ul>
+            </section>
 
             <Separator />
 
-            <h2 className="text-2xl font-bold">Skills</h2>
-            <ul className="mt-2 flex flex-wrap font-bold- text-xs">
-              {skills.base.map((label, index) => (
-                <Tag key={index} color='red' classes='mr-1'>{label}</Tag>
-              ))}
-              {skills.general.map((label, index) => (
-                <Tag key={index} color='yellow' classes='mr-1'>{label}</Tag>
-              ))}
-              {skills.front.map((label, index) => (
-                <Tag key={index} color='green' classes='mr-1'>{label}</Tag>
-              ))}
-              {skills.back.map((label, index) => (
-                <Tag key={index} color='blue' classes='mr-1'>{label}</Tag>
-              ))}
-              {skills.dbs.map((label, index) => (
-                <Tag key={index} color='purple' classes='mr-1'>{label}</Tag>
-              ))}
-              {skills.other.map((label, index) => (
-                <Tag key={index} color='gray' classes='mr-1'>{label}</Tag>
-              ))}
-            </ul>
+            <section>
+              <h2 className="flex text-2xl font-bold">Skills</h2>
+              <ul className="mt-2 flex flex-wrap text-xs">
+                {skills.base.map((label, index) => (
+                  <Tag key={index} color='red' classes='mr-1'>{label}</Tag>
+                ))}
+                {skills.general.map((label, index) => (
+                  <Tag key={index} color='yellow' classes='mr-1'>{label}</Tag>
+                ))}
+                {skills.front.map((label, index) => (
+                  <Tag key={index} color='green' classes='mr-1'>{label}</Tag>
+                ))}
+                {skills.back.map((label, index) => (
+                  <Tag key={index} color='blue' classes='mr-1'>{label}</Tag>
+                ))}
+                {skills.dbs.map((label, index) => (
+                  <Tag key={index} color='purple' classes='mr-1'>{label}</Tag>
+                ))}
+                {skills.other.map((label, index) => (
+                  <Tag key={index} color='black' classes='mr-1'>{label}</Tag>
+                ))}
+              </ul>
+            </section>
 
             <Separator />
 
-            <h2 className="text-2xl font-bold">Interests & Hobbies</h2>
-            <ul className="ml-4 mt-2 list-disc">
-              <li className="">
-                Sports : climbing, trail, mountain bike, hiking, snowboard, apnea,
-                kayak ..
-              </li>
-              <li className="">New technologies</li>
-              <li className="">Music</li>
-              <li className="">Videos & Board games</li>
-              <li className="">Ecology</li>
-              <li className="">Gastronomy & cooking</li>
-              <li className="">Travels</li>
-            </ul>
+            <section>
+              <h2 className="text-2xl font-bold">Languages</h2>
+              <ul className="ml-4 mt-2 list-disc">
+                <li>
+                  <span className="mr-2">French</span>
+                  <Tag color='green' classes="text-xs">C2</Tag>
+                </li>
+                <li>
+                  <span className="mr-2">English</span>
+                  <Tag color='blue' classes="text-xs mr-1">Read/Written B2</Tag>
+                  <Tag color='yellow' classes="text-xs">Spoken B1</Tag>
+                </li>
+              </ul>
+            </section>
+
+            <Separator />
+
+            <section>
+              <h2 className="text-2xl font-bold">Interests & Hobbies</h2>
+              <ul className="ml-4 mt-2 list-disc">
+                <li className="">
+                  Sports : climbing, trail, mountain bike, hiking, snowboard, apnea,
+                  kayak ..
+                </li>
+                <li className="">New technologies</li>
+                <li className="">Music</li>
+                <li className="">Videos & Board games</li>
+                <li className="">Ecology</li>
+                <li className="">Gastronomy & cooking</li>
+                <li className="">Travels</li>
+              </ul>
+            </section>
           </div>
 
           <div className="md:mt-10 md:w-4/6">
             <section>
               <Separator classes="md:hidden"/>
-
               <h2 className="text-2xl pb-1 font-bold">Summary</h2>
               <p className="text-md">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -189,7 +242,7 @@ export default function Home() {
                     <a
                       href="https://www.linkedin.com/company/maestro-corporation/"
                       target="_blank"
-                      className="text-purple-600 hover:underline"
+                      className="text-purple-600 hover:underline dark:text-purple-300"
                     >
                       <strong className="text-xl">Maestro Corporation</strong>
                     </a>
@@ -211,7 +264,7 @@ export default function Home() {
                     <a
                       href="https://www.netexplorer.fr/en/"
                       target="_blank"
-                      className="text-purple-600 hover:underline"
+                      className="text-purple-600 hover:underline dark:text-purple-300"
                     >
                       <strong className="text-xl">NetExplorer</strong>
                     </a>
@@ -233,15 +286,15 @@ export default function Home() {
                     <a
                       href="https://www.linkedin.com/search/results/all/?keywords=Neventy&sid=Drv"
                       target="_blank"
-                      className="text-purple-600 hover:underline"
+                      className="text-purple-600 hover:underline dark:text-purple-300"
                     >
                       <strong className="text-xl">Neventy</strong>
                     </a>
                     January 2013 - June 2013 | INT
                   </span>
                   <span className="flex justify-between mt-1 text-md font-semibold">
-                    <span>Toulouse, France</span>
                     <span>Front-End Developer</span>
+                    <span>Toulouse, France</span>
                   </span>
                   <p className="mt-1 text-justify text-xs-">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -255,9 +308,9 @@ export default function Home() {
                     <a
                       href="https://www.linkedin.com/company/actemiumtoulouserobotique&automation/"
                       target="_blank"
-                      className="text-purple-600 hover:underline"
+                      className="text-purple-600 hover:underline dark:text-purple-300"
                     >
-                      <strong className="text-xl">Actemium Toulouse Robotique & Automation</strong>
+                      <strong className="text-xl">Actemium Robotique & Automation</strong>
                     </a>
                     June 2012 - September 2012 | INT
                   </p>
@@ -277,7 +330,7 @@ export default function Home() {
                     <a
                       href="https://www.linkedin.com/company/utilib/"
                       target="_blank"
-                      className="text-purple-600 hover:underline"
+                      className="text-purple-600 hover:underline dark:text-purple-300"
                     >
                       <strong className="text-xl">Utilib</strong>
                     </a>
@@ -307,7 +360,7 @@ export default function Home() {
                     <a
                       href="https://www.supinfo.com/"
                       target="_blank"
-                      className="text-purple-600 hover:underline"
+                      className="text-purple-600 hover:underline dark:text-purple-300"
                     >
                       <strong className="text-xl">SUPINFO</strong>
                     </a>
@@ -323,7 +376,7 @@ export default function Home() {
                     <a
                       href="https://www.iut-blagnac.fr/fr/"
                       target="_blank"
-                      className="text-purple-600 hover:underline"
+                      className="text-purple-600 hover:underline dark:text-purple-300"
                     >
                       <strong className="text-xl">University Institute of Technology</strong>
                     </a>

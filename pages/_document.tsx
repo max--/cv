@@ -4,7 +4,9 @@ export default function Document() {
   return (
     <Html lang="en">
       <Head />
-      <body className="h-screen debug-screens">
+      {/* <body className={clsx("h-screen", isDev() && "debug-screens")}> */}
+      {/* <body className="h-screen debug-screens"> */}
+      <body className="h-screen">
         <Main />
         <NextScript />
       </body>
