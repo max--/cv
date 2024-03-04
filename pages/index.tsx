@@ -156,7 +156,7 @@ export default function Home() {
 
             <section>
               <h2 className="flex text-2xl font-bold">Skills</h2>
-              <ul className="mt-2 flex flex-wrap text-xs">
+              <ul className="mt-2 flex flex-wrap">
                 {skills.base.map((label, index) => (
                   <Tag key={index} color='red' classes='mr-1'>{label}</Tag>
                 ))}
@@ -182,15 +182,15 @@ export default function Home() {
 
             <section>
               <h2 className="text-2xl font-bold">Languages</h2>
-              <ul className="ml-4 mt-2 list-disc">
+              <ul className="flex flex-col space-y-1 ml-4 mt-2 list-disc">
                 <li>
                   <span className="mr-2">French</span>
-                  <Tag color='green' classes="text-xs">C2</Tag>
+                  <Tag color='green'>C2</Tag>
                 </li>
                 <li>
                   <span className="mr-2">English</span>
-                  <Tag color='blue' classes="text-xs mr-1">Read/Written B2</Tag>
-                  <Tag color='yellow' classes="text-xs">Spoken B1</Tag>
+                  <Tag color='blue' classes="mr-1">Read/Written B2</Tag>
+                  <Tag color='yellow' >Spoken B1</Tag>
                 </li>
               </ul>
             </section>
