@@ -73,7 +73,7 @@ const Tag = ({
   return (
     <span
       className={clsx(
-        'my-1 px-2 py-1 rounded-md text-white text-xs font-semibold cursor-default',
+        'my-1 px-2 py-1 rounded-md text-white text-xs font-semibold cursor-default break-keep',
         classes,
         colorClasses,
       )}

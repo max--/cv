@@ -1,3 +1,5 @@
+import setLanguage from 'next-translate/setLanguage'
+import useTranslation from 'next-translate/useTranslation'
 import { useCallback, useState } from "react"
 import { FaLinkedin, FaSun } from 'react-icons/fa'
 import { FaLocationDot } from 'react-icons/fa6'
@@ -64,6 +66,7 @@ const skills = {
 
 export default function Home() {
   const [theme, setTheme] = useState('light')
+  const { t, lang } = useTranslation('common')
 
   const handleSetTheme = useCallback(
     () => {
@@ -78,10 +81,19 @@ export default function Home() {
     [theme]
   )
 
+  const handleSetLang = useCallback(
+    () => setLanguage(lang === 'en' ? 'fr ' : 'en'),
+    [lang]
+  )
+
   return (
     <main className="flex justify-center content-center bg-stone-500 dark:bg-slate-700">
       <button
-        className="w-fit absolute top-2 px-4 py-1 rounded-md border-2 border-black bg-stone-200 text-black dark:bg-slate-700 dark:text-white hover:scale-110 active:scale-100 duration-200"
+        className="w-fit absolute top-2 mr-20 px-4 font-semibold rounded-md border-2 border-black bg-stone-200 text-black dark:bg-slate-700 dark:text-white hover:scale-110 active:scale-100 duration-200"
+        onClick={handleSetLang}
+      >{lang === 'en' ? 'fr ' : 'en'}</button>
+      <button
+        className="w-fit absolute top-2 ml-20 px-4 py-1 rounded-md border-2 border-black bg-stone-200 text-black dark:bg-slate-700 dark:text-white hover:scale-110 active:scale-100 duration-200"
         onClick={handleSetTheme}
       >
         { theme === 'light'
@@ -103,8 +115,8 @@ export default function Home() {
             </div>
             <div className="flex flex-col lg:items-end space-y-2">
               <h1 className="text-2xl sm:text-5xl md:text-6xl font-extrabold">Duhamel Maxime</h1>
-              <h2 className="text-2xl">Full-Stack JS Developer</h2>
-              <h2 className="text-lg">10 years of experience</h2>
+              <h2 className="text-2xl">{t('dev-full-stack')}</h2>
+              <h2 className="text-lg">{t('10-yrs-exp')}</h2>
             </div>
           </div>
         </header>
@@ -115,7 +127,7 @@ export default function Home() {
             <Separator classes="md:hidden"/>
 
             <section>
-              <h2 className="text-2xl font-bold">Contact</h2>
+              <h2 className="text-2xl font-bold">{t('contact')}</h2>
               <ul className="mt-2 space-y-2">
                 <li className="flex items-center space-x-2">
                   <GiSmartphone className="text-xl"/>
@@ -158,25 +170,25 @@ export default function Home() {
             <Separator />
 
             <section>
-              <h2 className="flex text-2xl font-bold">Skills</h2>
+              <h2 className="flex text-2xl font-bold">{t('skills')}</h2>
               <ul className="mt-2 flex flex-wrap">
                 {skills.base.map((label, index) => (
-                  <Tag key={index} color='red' classes='mr-1'>{label}</Tag>
+                  <Tag key={index} color="red" classes="mr-1">{label}</Tag>
                 ))}
                 {skills.general.map((label, index) => (
-                  <Tag key={index} color='yellow' classes='mr-1'>{label}</Tag>
+                  <Tag key={index} color="yellow" classes="mr-1">{label}</Tag>
                 ))}
                 {skills.front.map((label, index) => (
-                  <Tag key={index} color='green' classes='mr-1'>{label}</Tag>
+                  <Tag key={index} color="green" classes="mr-1">{label}</Tag>
                 ))}
                 {skills.back.map((label, index) => (
-                  <Tag key={index} color='blue' classes='mr-1'>{label}</Tag>
+                  <Tag key={index} color="blue" classes="mr-1">{label}</Tag>
                 ))}
                 {skills.dbs.map((label, index) => (
-                  <Tag key={index} color='purple' classes='mr-1'>{label}</Tag>
+                  <Tag key={index} color="purple" classes="mr-1">{label}</Tag>
                 ))}
                 {skills.other.map((label, index) => (
-                  <Tag key={index} color='black' classes='mr-1'>{label}</Tag>
+                  <Tag key={index} color="black" classes="mr-1">{label}</Tag>
                 ))}
               </ul>
             </section>
@@ -184,16 +196,26 @@ export default function Home() {
             <Separator />
 
             <section>
-              <h2 className="text-2xl font-bold">Languages</h2>
+              <h2 className="text-2xl font-bold">{t('languages')}</h2>
               <ul className="flex flex-col space-y-1 ml-4 mt-2 list-disc">
-                <li>
-                  <span className="mr-2">French</span>
+                <li className="-flex -items-center">
+                  <span className="mr-2">{t('french')}</span>
                   <Tag color='green'>C2</Tag>
                 </li>
-                <li>
-                  <span className="mr-2">English</span>
-                  <Tag color='blue' classes="mr-1">Read/Written B2</Tag>
-                  <Tag color='yellow' >Spoken B1</Tag>
+                <li className="-flex -items-center">
+                  <span className="mr-2">{t('english')}</span>
+                  <Tag color="blue" classes="inline-block mr-1 space-x-1">
+                    <>
+                      <span>{t('read-written')}</span>
+                      <span>B2</span>
+                    </>
+                  </Tag>
+                  <Tag color="yellow" classes="inline-block mr-1 space-x-1">
+                    <>
+                      <span>{t('spoken')}</span>
+                      <span>B1</span>
+                    </>
+                  </Tag>
                 </li>
               </ul>
             </section>
@@ -201,17 +223,15 @@ export default function Home() {
             <Separator />
 
             <section>
-              <h2 className="text-2xl font-bold">Interests & Hobbies</h2>
+              <h2 className="text-2xl font-bold">{t('hobbies')}</h2>
               <ul className="ml-4 mt-2 list-disc">
-                <li className="">
-                  Sports : climbing, trail, mountain bike, hiking, snowboard, apnea, kayak
-                </li>
-                <li className="">New technologies</li>
-                <li className="">Music</li>
-                <li className="">Videos & Board games</li>
-                <li className="">Ecology</li>
-                <li className="">Gastronomy & cooking</li>
-                <li className="">Travels</li>
+                <li>{t('sports-list')}</li>
+                <li>{t('new-technologies')}</li>
+                <li>{t('music')}</li>
+                <li>{t('games')}</li>
+                <li>{t('ecology')}</li>
+                <li>{t('gastronomy')}</li>
+                <li>{t('travels')}</li>
               </ul>
             </section>
           </div>
@@ -219,7 +239,7 @@ export default function Home() {
           <div className="md:mt-10 md:w-4/6">
             <section>
               <Separator classes="md:hidden"/>
-              <h2 className="text-2xl pb-1 font-bold">Summary</h2>
+              <h2 className="text-2xl pb-1 font-bold">{t('summary')}</h2>
               <p className="text-md">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 Expedita delectus labore enim in minus quod vero dignissimos
@@ -235,12 +255,10 @@ export default function Home() {
             <Separator />
 
             <section>
-              <h2 className="text-2xl mt-4 font-bold">
-                Work Experience
-              </h2>
+              <h2 className="text-2xl mt-4 font-bold">{t('work-exp')}</h2>
               <ul className="mt-2">
                 <li className="pt-2-">
-                  <span className="flex justify-between text-sm">
+                  <span className="flex justify-between space-x-6 text-sm">
                     <a
                       href="https://www.linkedin.com/company/maestro-corporation/"
                       target="_blank"
@@ -248,10 +266,15 @@ export default function Home() {
                     >
                       <strong className="text-xl">Maestro Corporation</strong>
                     </a>
-                    November 2015 - June 2023 | OEC
+                    <span className="space-x-1">
+                      <span>11/2013</span>
+                      <span>{t('to-date')}</span>
+                      <span>06/2015</span>
+                      <span>{t('oec')}</span>
+                    </span>
                   </span>
-                  <span className="flex justify-between mt-1 text-md font-semibold">
-                    <span>Full-stack JS Developer</span>
+                  <span className="flex justify-between mt-1 space-x-6 text-md font-semibold">
+                    <span>{t('dev-full-stack')}</span>
                     <span>Toulouse, France</span>
                   </span>
                   <p className="mt-1 text-justify text-md">
@@ -262,7 +285,7 @@ export default function Home() {
                 </li>
 
                 <li className="mt-4">
-                  <span className="flex justify-between text-sm">
+                  <span className="flex justify-between space-x-6 text-sm">
                     <a
                       href="https://www.netexplorer.fr/en/"
                       target="_blank"
@@ -270,10 +293,15 @@ export default function Home() {
                     >
                       <strong className="text-xl">NetExplorer</strong>
                     </a>
-                    June 2012 - August 2014 | INT
+                    <span className="space-x-1">
+                      <span>06/2012</span>
+                      <span>{t('to-date')}</span>
+                      <span>08/2014</span>
+                      <span>[{t('int')}]</span>
+                    </span>
                   </span>
-                  <span className="flex justify-between mt-1 text-md font-semibold">
-                    <span>Junior Web Developer</span>
+                  <span className="flex justify-between mt-1 space-x-6 text-md font-semibold">
+                    <span>{t('junior-web-dev')}</span>
                     <span>Colomiers, France</span>
                   </span>
                   <p className="mt-1 text-justify text-xs-">
@@ -284,7 +312,7 @@ export default function Home() {
                 </li>
 
                 <li className="mt-4">
-                  <span className="flex justify-between text-sm">
+                  <span className="flex justify-between space-x-6 text-sm">
                     <a
                       href="https://www.linkedin.com/search/results/all/?keywords=Neventy&sid=Drv"
                       target="_blank"
@@ -292,10 +320,15 @@ export default function Home() {
                     >
                       <strong className="text-xl">Neventy</strong>
                     </a>
-                    January 2013 - June 2013 | INT
+                    <span className="space-x-1">
+                      <span>01/2013</span>
+                      <span>{t('to-date')}</span>
+                      <span>06/2013</span>
+                      <span>[{t('int')}]</span>
+                    </span>
                   </span>
-                  <span className="flex justify-between mt-1 text-md font-semibold">
-                    <span>Front-End Developer</span>
+                  <span className="flex justify-between mt-1 space-x-6 text-md font-semibold">
+                    <span>{t('dev-front-end')}</span>
                     <span>Toulouse, France</span>
                   </span>
                   <p className="mt-1 text-justify text-xs-">
@@ -306,7 +339,7 @@ export default function Home() {
                 </li>
 
                 <li className="mt-4">
-                  <p className="flex justify-between text-sm">
+                  <p className="flex justify-between space-x-6 text-sm">
                     <a
                       href="https://www.linkedin.com/company/actemiumtoulouserobotique&automation/"
                       target="_blank"
@@ -314,10 +347,15 @@ export default function Home() {
                     >
                       <strong className="text-xl">Actemium Robotique & Automation</strong>
                     </a>
-                    June 2012 - September 2012 | INT
+                    <span className="space-x-1">
+                      <span>01/2012</span>
+                      <span>{t('to-date')}</span>
+                      <span>09/2012</span>
+                      <span>[{t('int')}]</span>
+                    </span>
                   </p>
-                  <p className="flex justify-between mt-1 text-md font-semibold">
-                    <span>System Developer</span>
+                  <p className="flex justify-between mt-1 space-x-6 text-md font-semibold">
+                    <span>{t('dev-system')}</span>
                     <span>Toulouse, France</span>
                   </p>
                   <p className="mt-1 text-justify text-xs-">
@@ -328,7 +366,7 @@ export default function Home() {
                 </li>
 
                 <li className="mt-4">
-                  <span className="flex justify-between text-sm">
+                  <span className="flex justify-between space-x-6 text-sm">
                     <a
                       href="https://www.linkedin.com/company/utilib/"
                       target="_blank"
@@ -336,10 +374,15 @@ export default function Home() {
                     >
                       <strong className="text-xl">Utilib</strong>
                     </a>
-                    January 2012 - March 2012 | INT
+                    <span className="space-x-1">
+                      <span>01/2012</span>
+                      <span>{t('to-date')}</span>
+                      <span>03/2012</span>
+                      <span>[{t('int')}]</span>
+                    </span>
                   </span>
                   <span className="flex justify-between mt-1 text-md font-semibold">
-                    <span>Full-Stack Developer</span>
+                    <span>{t('dev-full-stack')}</span>
                     <span>Labège, France</span>
                   </span>
                   <p className="mt-1 text-justify text-xs-">
@@ -355,10 +398,10 @@ export default function Home() {
             <Separator />
 
             <section>
-              <h2 className="text-2xl mt-6 font-bold">Education</h2>
+              <h2 className="text-2xl mt-6 font-bold">{t('education')}</h2>
               <ul className="mt-2">
                 <li className="">
-                  <p className="flex justify-between text-sm">
+                  <p className="flex justify-between space-x-6 text-sm">
                     <a
                       href="https://www.supinfo.com/"
                       target="_blank"
@@ -369,23 +412,23 @@ export default function Home() {
                     2012 - 2015
                   </p>
                   <p className="flex justify-between font-semibold">
-                    <span className="text-md">Master 1</span>
+                    <span className="text-md">Master 2</span>
                     <span>Toulouse, France</span>
                   </p>
                 </li>
                 <li className="pt-2">
-                  <p className="flex justify-between text-sm">
+                  <p className="flex justify-between space-x-6 text-sm">
                     <a
                       href="https://www.iut-blagnac.fr/fr/"
                       target="_blank"
                       className="text-purple-600 hover:underline dark:text-purple-300"
                     >
-                      <strong className="text-xl">University Institute of Technology</strong>
+                      <strong className="text-xl">{t('iut')}</strong>
                     </a>
-                    2010-2012
+                    <span>2010-2012</span>
                   </p>
                   <p className="flex justify-between font-semibold">
-                    <span className="text-md">University diploma in computer technology</span>
+                    <span className="text-md">{t('dut')}</span>
                     <span>Blagnac, France</span>
                   </p>
                 </li>
