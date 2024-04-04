@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import { useCallback, useState } from 'react'
 import { FaLinkedin, FaSun } from 'react-icons/fa'
 import { FaLocationDot } from 'react-icons/fa6'
@@ -114,7 +115,7 @@ export default function Home() {
             <div className="flex flex-col lg:items-end space-y-2">
               <h1 className="text-2xl sm:text-5xl md:text-6xl font-extrabold">Duhamel Maxime</h1>
               <h2 className="text-2xl">Full-Stack JS Developer</h2>
-              <h2 className="text-lg">10 years of experience</h2>
+              <h2 className="text-lg">10 ans d'expérience</h2>
             </div>
           </div>
         </header>
@@ -168,7 +169,7 @@ export default function Home() {
             <Separator />
 
             <section>
-              <h2 className="flex text-2xl font-bold">Skills</h2>
+              <h2 className="flex text-2xl font-bold">Compétences</h2>
               <ul className="mt-2 flex flex-wrap">
                 {skills.base.map((label, index) => (
                   <Tag key={index} color="red" classes="mr-1">{label}</Tag>
@@ -191,7 +192,7 @@ export default function Home() {
               </ul>
             </section>
 
-            <Separator />
+            {/* <Separator />
 
             <section>
               <h2 className="text-2xl font-bold">Languages</h2>
@@ -216,20 +217,20 @@ export default function Home() {
                   </Tag>
                 </li>
               </ul>
-            </section>
+            </section> */}
 
             <Separator />
 
             <section>
-              <h2 className="text-2xl font-bold">Hobbies</h2>
+              <h2 className="text-2xl font-bold">Passions</h2>
               <ul className="ml-4 mt-2 list-disc">
-                <li>Sports : climbing, trail, mountain bike, hiking, snowboard, apnea, kayak</li>
-                <li>New technologies</li>
-                <li>Music</li>
-                <li>Videos & Board games</li>
-                <li>Ecology</li>
-                <li>Gastronomy & cooking</li>
-                <li>Travels</li>
+                <li>Sports : escalade, trail, VTT, randonnée, snowboard, apnée, kayak</li>
+                <li>Nouvelles technologies</li>
+                <li>Musique</li>
+                <li>Jeux (vidéos, de société)</li>
+                <li>Écologie</li>
+                <li>Gastronomie et cuisine</li>
+                <li>Voyage</li>
               </ul>
             </section>
           </div>
@@ -237,7 +238,7 @@ export default function Home() {
           <div className="md:mt-10 md:w-4/6">
             <section>
               <Separator classes="md:hidden"/>
-              <h2 className="text-2xl pb-1 font-bold">Summary</h2>
+              <h2 className="text-2xl pb-1 font-bold">Résumé</h2>
               <p className="text-md">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 Expedita delectus labore enim in minus quod vero dignissimos
@@ -253,7 +254,7 @@ export default function Home() {
             <Separator />
 
             <section>
-              <h2 className="text-2xl mt-4 font-bold">Work Experience</h2>
+              <h2 className="text-2xl mt-4 font-bold">Expérience professionnelle</h2>
               <ul className="mt-2">
                 <li className="pt-2-">
                   <span className="flex justify-between space-x-6 text-sm">
@@ -266,9 +267,8 @@ export default function Home() {
                     </a>
                     <span className="space-x-1">
                       <span>11/2013</span>
-                      <span>to</span>
+                      <span>-</span>
                       <span>06/2015</span>
-                      <span>CDI</span>
                     </span>
                   </span>
                   <span className="flex justify-between mt-1 space-x-6 text-md font-semibold">
@@ -276,10 +276,22 @@ export default function Home() {
                     <span>Toulouse, France</span>
                   </span>
                   <p className="mt-1 text-justify text-md">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Expedita delectus labore enim in minus quod vero dignissimos
-                    et, ratione obcaecati quis maiores?
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita delectus labore enim in minus quod vero dignissimos et, ratione obcaecati quis maiores?
                   </p>
+                  <div className="mt-2">
+                    <Tag color="green" classes="mr-1">React</Tag>
+                    <Tag color="green" classes="mr-1">Next</Tag>
+                    <Tag color="blue" classes="mr-1">Express</Tag>
+                    <Tag color="blue" classes="mr-1">Koa</Tag>
+                    <Tag color="blue" classes="mr-1">MongoDB</Tag>
+                    <Tag color="purple" classes="mr-1">PostgreSQL</Tag>
+                    <Tag color="black" classes="mr-1">Docker</Tag>
+                    <Tag color="black" classes="mr-1">Linux</Tag>
+                    <Tag color="black" classes="mr-1">RabbitMQ</Tag>
+                    <Tag color="black" classes="mr-1">Jenkins</Tag>
+                    <Tag color="black" classes="mr-1">AWS</Tag>
+                    <Tag color="black" classes="mr-1">G-Cloud</Tag>
+                  </div>
                 </li>
 
                 <li className="mt-4">
@@ -293,9 +305,9 @@ export default function Home() {
                     </a>
                     <span className="space-x-1">
                       <span>06/2012</span>
-                      <span>to</span>
+                      <span>-</span>
                       <span>08/2014</span>
-                      <span>[INT]</span>
+                      <span>[stage]</span>
                     </span>
                   </span>
                   <span className="flex justify-between mt-1 space-x-6 text-md font-semibold">
@@ -303,16 +315,18 @@ export default function Home() {
                     <span>Colomiers, France</span>
                   </span>
                   <p className="mt-1 text-justify text-xs-">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Expedita delectus labore enim in minus quod vero dignissimos
-                    et, ratione obcaecati quis maiores?
+                    L'objectif était de régler les problèmes de style pour le naviguateur Internet Explorer, et ce jusqu'à sa version 7.
                   </p>
+                  <div className="mt-2">
+                    <Tag color="green" classes="mr-1">IE</Tag>
+                    <Tag color="green" classes="mr-1">CSS</Tag>
+                  </div>
                 </li>
 
                 <li className="mt-4">
                   <span className="flex justify-between space-x-6 text-sm">
                     <a
-                      href="https://www.linkedin.com/search/results/all/?keywords=Neventy&sid=Drv"
+                      href="https://www.univers-cites.fr/2013/04/26/restez-connectes-avec-lappli-neventy/"
                       target="_blank"
                       className="text-purple-600 hover:underline dark:text-purple-300"
                     >
@@ -320,9 +334,9 @@ export default function Home() {
                     </a>
                     <span className="space-x-1">
                       <span>01/2013</span>
-                      <span>to</span>
+                      <span>-</span>
                       <span>06/2013</span>
-                      <span>[INT]</span>
+                      <span>[stage]</span>
                     </span>
                   </span>
                   <span className="flex justify-between mt-1 space-x-6 text-md font-semibold">
@@ -330,10 +344,12 @@ export default function Home() {
                     <span>Toulouse, France</span>
                   </span>
                   <p className="mt-1 text-justify text-xs-">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Expedita delectus labore enim in minus quod vero dignissimos
-                    et, ratione obcaecati quis maiores?
+                    Développement de fonctionnalités sur un site web permettant aux utilisateurs de trouver facilement des évènements proches d'eux.
                   </p>
+                  <div className="mt-2">
+                    <Tag color="green" classes="mr-1">JQuery</Tag>
+                    <Tag color="green" classes="mr-1">CSS</Tag>
+                  </div>
                 </li>
 
                 <li className="mt-4">
@@ -347,9 +363,9 @@ export default function Home() {
                     </a>
                     <span className="space-x-1">
                       <span>01/2012</span>
-                      <span>to</span>
+                      <span>-</span>
                       <span>09/2012</span>
-                      <span>[INT]</span>
+                      <span>[stage]</span>
                     </span>
                   </p>
                   <p className="flex justify-between mt-1 space-x-6 text-md font-semibold">
@@ -357,10 +373,14 @@ export default function Home() {
                     <span>Toulouse, France</span>
                   </p>
                   <p className="mt-1 text-justify text-xs-">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Expedita delectus labore enim in minus quod vero dignissimos
-                    et, ratione obcaecati quis maiores?
+                    Stage de fin de DUT, avec pour objectif le portage d'une application de gestion de machines virtuelles en Python depuis une base en VBA, via du parsing de fichiers XML et de commandes DOS.
                   </p>
+                  <div className="mt-2">
+                    <Tag color="red" classes="mr-1">VBA</Tag>
+                    <Tag color="red" classes="mr-1">Python</Tag>
+                    <Tag color="red" classes="mr-1">XML</Tag>
+                    <Tag color="black" classes="mr-1">VirtualBox</Tag>
+                  </div>
                 </li>
 
                 <li className="mt-4">
@@ -374,9 +394,9 @@ export default function Home() {
                     </a>
                     <span className="space-x-1">
                       <span>01/2012</span>
-                      <span>to</span>
+                      <span>-</span>
                       <span>03/2012</span>
-                      <span>[INT]</span>
+                      <span>[stage]</span>
                     </span>
                   </span>
                   <span className="flex justify-between mt-1 text-md font-semibold">
@@ -384,10 +404,13 @@ export default function Home() {
                     <span>Labège, France</span>
                   </span>
                   <p className="mt-1 text-justify text-xs-">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Expedita delectus labore enim in minus quod vero dignissimos
-                    et, ratione obcaecati quis maiores?
+                    Développement de fonctionnalités sur un site web permettant le prêt d'objets entre voisins.
                   </p>
+                  <div className="mt-2">
+                    <Tag color="green" classes="mr-1">JQuery</Tag>
+                    <Tag color="blue" classes="mr-1">Express</Tag>
+                    <Tag color="purple" classes="mr-1">MongoDB</Tag>
+                  </div>
                 </li>
 
               </ul>
@@ -396,7 +419,7 @@ export default function Home() {
             <Separator />
 
             <section>
-              <h2 className="text-2xl mt-6 font-bold">Education</h2>
+              <h2 className="text-2xl mt-6 font-bold">Éducation</h2>
               <ul className="mt-2">
                 <li className="">
                   <p className="flex justify-between space-x-6 text-sm">
