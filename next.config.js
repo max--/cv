@@ -8,11 +8,11 @@ module.exports = withPlugins(
     nextTranslate
   ],
   {
-    basePath: "/cv",
-    output: "export",  // <=== enables static exports
-    images: {
-      unoptimized: true,
-    },
+    //basePath: "/cv",
+    //output: "export",  // <=== enables static exports
+    //images: {
+      //unoptimized: true,
+    //},
     reactStrictMode: true,
   }
 )
