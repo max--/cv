@@ -64,7 +64,7 @@ const skills = {
 export default function Home() {
   const [theme, setTheme] = useState('light')
   // const { t, lang } = useTranslation('common')
-  const t = () => ''
+  const t = (str: string) => `${str}`
 
   const handleSetTheme = useCallback(
     () => {
