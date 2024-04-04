@@ -1,10 +1,7 @@
-import setLanguage from 'next-translate/setLanguage'
-import useTranslation from 'next-translate/useTranslation'
 import { useCallback, useState } from "react"
 import { FaLinkedin, FaSun } from 'react-icons/fa'
 import { FaLocationDot } from 'react-icons/fa6'
 import { GiSmartphone } from 'react-icons/gi'
-import { MdDarkMode } from 'react-icons/md'
 import { SiMaildotru } from 'react-icons/si'
 
 import Separator from 'components/Separator'
@@ -66,7 +63,8 @@ const skills = {
 
 export default function Home() {
   const [theme, setTheme] = useState('light')
-  const { t, lang } = useTranslation('common')
+  // const { t, lang } = useTranslation('common')
+  const t = () => ''
 
   const handleSetTheme = useCallback(
     () => {
@@ -81,14 +79,14 @@ export default function Home() {
     [theme]
   )
 
-  const handleSetLang = useCallback(
-    () => setLanguage(lang === 'en' ? 'fr ' : 'en'),
-    [lang]
-  )
+  // const handleSetLang = useCallback(
+  //   () => setLanguage(lang === 'en' ? 'fr ' : 'en'),
+  //   [lang]
+  // )
 
   return (
     <main className="flex justify-center content-center bg-stone-500 dark:bg-slate-700">
-      <button
+      {/* <button
         className="w-fit absolute top-2 mr-20 px-4 font-semibold rounded-md border-2 border-black bg-stone-200 text-black dark:bg-slate-700 dark:text-white hover:scale-110 active:scale-100 duration-200"
         onClick={handleSetLang}
       >{lang === 'en' ? 'fr ' : 'en'}</button>
@@ -100,7 +98,7 @@ export default function Home() {
           ? <MdDarkMode />
           : <FaSun />
         }
-      </button>
+      </button> */}
 
       <div className="m-5 xs:m-10 p-4 xs:p-8 bg-stone-300 border-4 border-gray-700 rounded-2xl shadow-xl dark:bg-stone-600 dark:border-black dark:text-white">
         <header>
