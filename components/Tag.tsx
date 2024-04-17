@@ -70,11 +70,10 @@ const Tag = ({
       break
   }
 
-  // TODO: handle break word
   return (
     <span
       className={clsx(
-        'px-2 py-1 rounded-md text-white text-xs font-semibold cursor-default break-keep',
+        'px-2 py-1 rounded-md text-white text-xs font-semibold cursor-default keep-word',
         classes,
         colorClasses,
       )}

@@ -6,7 +6,7 @@ export default function Document() {
   return (
     <Html lang="en">
       <Head />
-      <body className={clsx("h-screen", "debug-screens")}>
+      <body className={clsx("h-screen", "-debug-screens")}>
         <Main />
         <NextScript />
       </body>

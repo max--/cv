@@ -89,11 +89,12 @@ export default function Home() {
   const handleSetTheme = useCallback(
     () => {
       const newTheme = theme === 'dark' ? 'light' : 'dark'
-      if (newTheme === 'dark') {
-        document.documentElement.classList.add('dark')
-      } else {
-        document.documentElement.classList.remove('dark')
-      }
+      document.documentElement.classList.toggle('dark')
+      // if (newTheme === 'dark') {
+      //   document.documentElement.classList.add('dark')
+      // } else {
+      //   document.documentElement.classList.remove('dark')
+      // }
       setTheme(newTheme)
     },
     [theme]
@@ -106,7 +107,7 @@ export default function Home() {
   // const t = (str: string) => str
 
   return (
-    <main className="flex justify-center content-center bg-stone-500 dark:bg-slate-700">
+    <main className="flex justify-center content-center 4xs:bg-gray-700 xs:bg-stone-500 dark:bg-slate-700">
       {/* <button
         className="w-fit absolute top-2 mr-20 px-4 font-semibold rounded-md border-2 border-black bg-stone-200 text-black dark:bg-slate-700 dark:text-white hover:scale-110 active:scale-100 duration-200"
         onClick={handleSetLang}
@@ -122,13 +123,29 @@ export default function Home() {
       </button> */}
 
       <div className={clsx(
-        'flex flex-col m-4 4xs:m-0 xs:m-4 p-4 4xs:p-1 xs:p-8',
-        'bg-stone-300 border-4 border-gray-700 xs:rounded-2xl shadow-xl dark:bg-stone-600 dark:border-black dark:text-white',
+        'flex flex-col m-4 4xs:m-0 xs:m-4 p-4 4xs:p-2 xs:p-8',
+        'border-4 shadow-xl dark:text-white',
+        'bg-stone-300 dark:bg-stone-600',
+        'border-gray-700 dark:border-black',
+        '4xs:rounded-lg xs:rounded-2xl',
+        // 'bg-stone-300 border-gray-700 4xs:rounded-lg xs:rounded-2xl dark:bg-stone-600 dark:border-black dark:text-white',
       )}>
 
-        <header className="3xs:mt-2">
+        <header className="">
           <div className="flex flex-col 2xs:flex-row justify-start items-center 2xs:space-x-8">
-            <div className="">
+            <div className="relative">
+              <button
+                className="w-fit absolute top-2 ml-2 px-4 py-1 rounded-md border-2 border-black bg-stone-200 text-black dark:bg-slate-700 dark:text-white hover:scale-110 active:scale-100 duration-200"
+                style={{
+                  top: "-5px",
+                }}
+                onClick={handleSetTheme}
+              >
+                { theme === 'light'
+                  ? <MdDarkMode />
+                  : <FaSun />
+                }
+              </button>
               <div
                 className="h-40 w-40 bg-cover bg-no-repeat rounded-full border-2 border-gray-700"
                 style={{
@@ -324,7 +341,7 @@ export default function Home() {
                     <a
                       href="https://www.linkedin.com/company/maestro-corporation/"
                       target="_blank"
-                      className="text-purple-600 hover:underline dark:text-purple-300"
+                      className="mr-4 text-purple-600 hover:underline dark:text-purple-300"
                     >
                       <strong className="text-xl">Maestro Corporation</strong>
                     </a>
@@ -367,7 +384,7 @@ export default function Home() {
                     <a
                       href="https://www.netexplorer.fr/en/"
                       target="_blank"
-                      className="text-purple-600 hover:underline dark:text-purple-300"
+                      className="mr-4 text-purple-600 hover:underline dark:text-purple-300"
                     >
                       <strong className="text-xl">NetExplorer</strong>
                     </a>
@@ -396,7 +413,7 @@ export default function Home() {
                     <a
                       href="https://www.univers-cites.fr/2013/04/26/restez-connectes-avec-lappli-neventy/"
                       target="_blank"
-                      className="text-purple-600 hover:underline dark:text-purple-300"
+                      className="mr-4 text-purple-600 hover:underline dark:text-purple-300"
                     >
                       <strong className="text-xl">Neventy</strong>
                     </a>
@@ -426,7 +443,7 @@ export default function Home() {
                     <a
                       href="https://www.linkedin.com/company/actemiumtoulouserobotique&automation/"
                       target="_blank"
-                      className="text-purple-600 hover:underline dark:text-purple-300"
+                      className="mr-4 text-purple-600 hover:underline dark:text-purple-300"
                     >
                       <strong className="text-xl">Actemium Robotique & Automation</strong>
                     </a>
@@ -457,7 +474,7 @@ export default function Home() {
                     <a
                       href="https://www.linkedin.com/company/utilib/"
                       target="_blank"
-                      className="text-purple-600 hover:underline dark:text-purple-300"
+                      className="mr-4 text-purple-600 hover:underline dark:text-purple-300"
                     >
                       <strong className="text-xl">Utilib</strong>
                     </a>
@@ -509,7 +526,7 @@ export default function Home() {
                   </p>
                 </li>
 
-                <li className="mt-4">
+                <li className="my-4">
                   <p className="flex justify-between">
                     <a
                       href="https://www.iut-blagnac.fr/fr/"
