@@ -8,58 +8,78 @@ import { SiMaildotru } from 'react-icons/si'
 
 import Separator from 'components/Separator'
 import Tag from 'components/Tag'
+import clsx from 'clsx'
 
 const links = {
   email: 'mduhamel31@gmail.com',
-  linkedin: 'https://www.linkedin.com/in/duhamel-maxime/',
+  linkedin: 'https://www.linkedin.com/in/duhamel-maxime',
   maps: 'https://www.google.com/maps/place/Toulouse/@43.6005854,1.2683801,11z/data=!3m1!4b1!4m6!3m5!1s0x12aebb6fec7552ff:0x406f69c2f411030!8m2!3d43.604652!4d1.444209!16zL20vMGNiaGg?entry=ttu',
 }
 
 const skills = {
-  base: [
-    'JavaScript',
-    'TypeScript',
-  ],
-  general: [
-    'Agile',
-    'APIs',
-    'CI/CD',
-    'UI/UX',
-  ],
-  front: [
-    'React',
-    'Next',
-    'HTML5',
-    'CSS3',
-    'Sass',
-    'TailwindCSS',
-    'Babel',
-    'Gulp',
-    'Webpack',
-  ],
-  back: [
-    'Node',
-    'Express',
-    'Koa',
-  ],
-  dbs: [
-    'PostgreSQL (Sequelize)',
-    'MongoDB (Mongoose)',
-  ],
-  other: [
-    'Mac',
-    'Linux',
-    'Docker',
-    'AWS',
-    'G-Cloud',
-    'Github',
-    'Gitlab',
-    'RabbitMQ',
-    'Jenkins',
-    'Metabase',
-    'Slack',
-    'Notion',
-  ]
+  base: {
+    js: 'JavaScript',
+    ts: 'TypeScript',
+  },
+  general: {
+    agile: 'Agile',
+    apis: 'APIs',
+    'ci/cd': 'CI/CD',
+    'ui/ux': 'UI/UX',
+  },
+  front: {
+    react: 'React',
+    next: 'Next',
+    vue: 'Vue',
+    svelte: 'svelte',
+    jquery: 'JQuery',
+    html5: 'HTML5',
+    css: 'CSS',
+    css3: 'CSS3',
+    sass: 'Sass',
+    tailwind: 'TailwindCSS',
+    babel: 'Babel',
+    gulp: 'Gulp',
+    webpack: 'Webpack',
+    ie: 'Internet Explorer'
+  },
+  back: {
+    node: 'Node',
+    express: 'Express',
+    koa: 'Koa',
+  },
+  dbs: {
+    postgre: 'PostgreSQL (Sequelize)',
+    express: 'Express',
+    mongo: 'MongoDB (Mongoose)',
+  },
+  other: {
+    mac: 'Mac',
+    linux: 'Linux',
+    docker: 'Docker',
+    aws: 'AWS',
+    gcloud: 'G-Cloud',
+    Github: 'Github',
+    Gitlab: 'Gitlab',
+    rabbitmq: 'RabbitMQ',
+    jenkins: 'Jenkins',
+    sentry: 'Sentry',
+    metabase: 'Metabase',
+    slack: 'Slack',
+    notion: 'Notion',
+  },
+  miscellaneous: {
+    vba: 'VBA',
+    python: 'Python',
+    xml: 'XML',
+    virtualbox: 'VirtualBox',
+    trello: 'Trello',
+  },
+  learning: {
+    vue: 'Vue',
+    svelte: 'Svelte',
+    bun: 'Bun',
+  }
 }
 
 export default function Home() {
@@ -91,29 +111,35 @@ export default function Home() {
         className="w-fit absolute top-2 mr-20 px-4 font-semibold rounded-md border-2 border-black bg-stone-200 text-black dark:bg-slate-700 dark:text-white hover:scale-110 active:scale-100 duration-200"
         onClick={handleSetLang}
       >{lang === 'en' ? 'fr ' : 'en'}</button> */}
-      <button
-        className="w-fit absolute top-2 ml-20 px-4 py-1 rounded-md border-2 border-black bg-stone-200 text-black dark:bg-slate-700 dark:text-white hover:scale-110 active:scale-100 duration-200"
+      {/* <button
+        className="w-fit absolute top-2 3xs:ml-18 ml-20 px-4 py-1 rounded-md border-2 border-black bg-stone-200 text-black dark:bg-slate-700 dark:text-white hover:scale-110 active:scale-100 duration-200"
         onClick={handleSetTheme}
       >
         { theme === 'light'
           ? <MdDarkMode />
           : <FaSun />
         }
-      </button>
+      </button> */}
 
-      <div className="m-5 xs:m-10 p-4 xs:p-8 bg-stone-300 border-4 border-gray-700 rounded-2xl shadow-xl dark:bg-stone-600 dark:border-black dark:text-white">
-        <header>
-          <div className="flex justify-between items-center">
-            <div className="mr-8">
+      <div className={clsx(
+        'flex flex-col m-4 4xs:m-0 xs:m-4 p-4 4xs:p-1 xs:p-8',
+        'bg-stone-300 border-4 border-gray-700 xs:rounded-2xl shadow-xl dark:bg-stone-600 dark:border-black dark:text-white',
+      )}>
+
+        <header className="3xs:mt-2">
+          <div className="flex flex-col 2xs:flex-row justify-start items-center 2xs:space-x-8">
+            <div className="">
               <div
-                className="h-32 w-32 bg-cover bg-no-repeat rounded-full border-2 border-gray-700"
+                className="h-40 w-40 bg-cover bg-no-repeat rounded-full border-2 border-gray-700"
                 style={{
-                  backgroundImage: `url('picture.png')`,
+                  backgroundImage: `url('picture-2.jpg')`,
+                  backgroundPositionY: '16%',
                 }}
               />
             </div>
-            <div className="flex flex-col lg:items-end space-y-2">
-              <h1 className="text-2xl sm:text-5xl md:text-6xl font-extrabold">Duhamel Maxime</h1>
+
+            <div className="flex flex-col space-y-2 3xs:mt-4">
+              <h1 className="text-2xl xs:text-5xl md:text-6xl font-extrabold">Duhamel Maxime</h1>
               <h2 className="text-2xl">Full-Stack JS Developer</h2>
               <h2 className="text-lg">10 ans d'expérience</h2>
             </div>
@@ -150,7 +176,8 @@ export default function Home() {
                     href={links.linkedin}
                     target="_blank"
                   >
-                    duhamel-maxime
+                    {/* duhamel-maxime */}
+                    linkedin.com/in/duhamel-maxime
                   </a>
                 </li>
                 <li className="flex items-center space-x-2">
@@ -171,53 +198,88 @@ export default function Home() {
             <section>
               <h2 className="flex text-2xl font-bold">Compétences</h2>
               <ul className="mt-2 flex flex-wrap">
-                {skills.base.map((label, index) => (
-                  <Tag key={index} color="red" classes="mr-1">{label}</Tag>
+                {Object.keys(skills.base).map((skill, index) => (
+                  <li key={index} className="mr-1 mb-1">
+                    {/* @ts-ignore */}
+                    <Tag color="red" classes="m-0">{skills.base[skill]}</Tag>
+                  </li>
                 ))}
-                {skills.general.map((label, index) => (
-                  <Tag key={index} color="yellow" classes="mr-1">{label}</Tag>
+                {Object.keys(skills.general).map((skill, index) => (
+                  <li key={index} className="mr-1 mb-1">
+                    {/* @ts-ignore */}
+                    <Tag color="yellow" classes="m-0">{skills.general[skill]}</Tag>
+                  </li>
                 ))}
-                {skills.front.map((label, index) => (
-                  <Tag key={index} color="green" classes="mr-1">{label}</Tag>
+                {Object.keys(skills.front).map((skill, index) => (
+                  <li key={index} className="mr-1 mb-1">
+                    {/* @ts-ignore */}
+                    <Tag color="green" classes="m-0">{skills.front[skill]}</Tag>
+                  </li>
                 ))}
-                {skills.back.map((label, index) => (
-                  <Tag key={index} color="blue" classes="mr-1">{label}</Tag>
+                {Object.keys(skills.back).map((skill, index) => (
+                  <li key={index} className="mr-1 mb-1">
+                    {/* @ts-ignore */}
+                    <Tag color="blue" classes="m-0">{skills.back[skill]}</Tag>
+                  </li>
                 ))}
-                {skills.dbs.map((label, index) => (
-                  <Tag key={index} color="purple" classes="mr-1">{label}</Tag>
+                {Object.keys(skills.dbs).map((skill, index) => (
+                  <li key={index} className="mr-1 mb-1">
+                    {/* @ts-ignore */}
+                    <Tag color="purple" classes="m-0">{skills.dbs[skill]}</Tag>
+                  </li>
                 ))}
-                {skills.other.map((label, index) => (
-                  <Tag key={index} color="black" classes="mr-1">{label}</Tag>
+                {Object.keys(skills.other).map((skill, index) => (
+                  <li key={index} className="mr-1 mb-1">
+                    {/* @ts-ignore */}
+                    <Tag color="black" classes="m-0">{skills.other[skill]}</Tag>
+                  </li>
                 ))}
               </ul>
             </section>
 
-            {/* <Separator />
+            <Separator />
 
             <section>
-              <h2 className="text-2xl font-bold">Languages</h2>
+              <h2 className="flex text-2xl font-bold">En cours d'apprentissage</h2>
+              <ul className="mt-2 flex flex-wrap">
+                <li className="mr-1 mb-1">
+                  <Tag color="green" classes="m-0">{skills.learning.vue}</Tag>
+                </li>
+                <li className="mr-1 mb-1">
+                  <Tag color="green" classes="m-0">{skills.learning.svelte}</Tag>
+                </li>
+                <li className="mr-1 mb-1">
+                  <Tag color="green" classes="m-0">{skills.learning.bun}</Tag>
+                </li>
+              </ul>
+            </section>
+
+            <Separator />
+
+            <section>
+              <h2 className="text-2xl font-bold">Langues</h2>
               <ul className="flex flex-col space-y-1 ml-4 mt-2 list-disc">
-                <li className="-flex -items-center">
-                  <span className="mr-2">French</span>
+                <li className="-flex">
+                  <span className="mr-2">Français</span>
                   <Tag color='green'>C2</Tag>
                 </li>
-                <li className="-flex -items-center">
-                  <span className="mr-2">English</span>
+                <li className="-flex">
+                  <span className="mr-2">Anglais</span>
                   <Tag color="blue" classes="inline-block mr-1 space-x-1">
                     <>
-                      <span>Read/Written</span>
+                      <span>Lu/écrit</span>
                       <span>B2</span>
                     </>
                   </Tag>
                   <Tag color="yellow" classes="inline-block mr-1 space-x-1">
                     <>
-                      <span>Spoken</span>
+                      <span>Parlé</span>
                       <span>B1</span>
                     </>
                   </Tag>
                 </li>
               </ul>
-            </section> */}
+            </section>
 
             <Separator />
 
@@ -254,10 +316,11 @@ export default function Home() {
             <Separator />
 
             <section>
-              <h2 className="text-2xl mt-4 font-bold">Expérience professionnelle</h2>
-              <ul className="mt-2">
-                <li className="pt-2-">
-                  <span className="flex justify-between space-x-6 text-sm">
+              <h2 className="text-2xl mt-4- font-bold">Expérience professionnelle</h2>
+
+              <ul className="mt-4">
+                <li className="">
+                  <span className="flex justify-between items-center">
                     <a
                       href="https://www.linkedin.com/company/maestro-corporation/"
                       target="_blank"
@@ -265,37 +328,42 @@ export default function Home() {
                     >
                       <strong className="text-xl">Maestro Corporation</strong>
                     </a>
-                    <span className="space-x-1">
+                    <span className="space-x-1 text-md font-semibold">
                       <span>11/2013</span>
                       <span>-</span>
-                      <span>06/2015</span>
+                      <span>06/2023</span>
                     </span>
                   </span>
-                  <span className="flex justify-between mt-1 space-x-6 text-md font-semibold">
-                    <span>Full-Stack JS Developer</span>
+                  <span className="flex justify-between items-center mt-1 space-x-6 text-md">
+                    <span className="font-semibold">Full-Stack JS Developer</span>
                     <span>Toulouse, France</span>
                   </span>
-                  <p className="mt-1 text-justify text-md">
+                  <p className="mt-1 text-md">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita delectus labore enim in minus quod vero dignissimos et, ratione obcaecati quis maiores?
                   </p>
-                  <div className="mt-2">
-                    <Tag color="green" classes="mr-1">React</Tag>
-                    <Tag color="green" classes="mr-1">Next</Tag>
-                    <Tag color="blue" classes="mr-1">Express</Tag>
-                    <Tag color="blue" classes="mr-1">Koa</Tag>
-                    <Tag color="blue" classes="mr-1">MongoDB</Tag>
-                    <Tag color="purple" classes="mr-1">PostgreSQL</Tag>
-                    <Tag color="black" classes="mr-1">Docker</Tag>
-                    <Tag color="black" classes="mr-1">Linux</Tag>
-                    <Tag color="black" classes="mr-1">RabbitMQ</Tag>
-                    <Tag color="black" classes="mr-1">Jenkins</Tag>
-                    <Tag color="black" classes="mr-1">AWS</Tag>
-                    <Tag color="black" classes="mr-1">G-Cloud</Tag>
+                  <div className="flex flex-wrap mt-1">
+                    <Tag color="red" classes="mr-1 mb-1">{skills.base.js}</Tag>
+                    <Tag color="red" classes="mr-1 mb-1">{skills.base.ts}</Tag>
+                    <Tag color="green" classes="mr-1 mb-1">{skills.front.react}</Tag>
+                    <Tag color="green" classes="mr-1 mb-1">{skills.front.next}</Tag>
+                    <Tag color="blue" classes="mr-1 mb-1">{skills.back.express}</Tag>
+                    <Tag color="blue" classes="mr-1 mb-1">{skills.back.koa}</Tag>
+                    <Tag color="blue" classes="mr-1 mb-1">{skills.dbs.mongo}</Tag>
+                    <Tag color="purple" classes="mr-1 mb-1">{skills.dbs.postgre}</Tag>
+                    <Tag color="black" classes="mr-1 mb-1">{skills.other.docker}</Tag>
+                    <Tag color="black" classes="mr-1 mb-1">{skills.other.linux}</Tag>
+                    <Tag color="black" classes="mr-1 mb-1">{skills.other.rabbitmq}</Tag>
+                    <Tag color="black" classes="mr-1 mb-1">{skills.other.jenkins}</Tag>
+                    <Tag color="black" classes="mr-1 mb-1">{skills.other.sentry}</Tag>
+                    <Tag color="black" classes="mr-1 mb-1">{skills.other.aws}</Tag>
+                    <Tag color="black" classes="mr-1 mb-1">{skills.other.gcloud}</Tag>
+                    <Tag color="black" classes="mr-1 mb-1">{`${skills.other.slack} (+API)`}</Tag>
+                    <Tag color="black" classes="mr-1 mb-1">{skills.other.notion}</Tag>
                   </div>
                 </li>
 
                 <li className="mt-4">
-                  <span className="flex justify-between space-x-6 text-sm">
+                  <span className="flex justify-between items-center">
                     <a
                       href="https://www.netexplorer.fr/en/"
                       target="_blank"
@@ -303,28 +371,28 @@ export default function Home() {
                     >
                       <strong className="text-xl">NetExplorer</strong>
                     </a>
-                    <span className="space-x-1">
+                    <span className="space-x-1 font-semibold">
                       <span>06/2012</span>
                       <span>-</span>
                       <span>08/2014</span>
                       <span>[stage]</span>
                     </span>
                   </span>
-                  <span className="flex justify-between mt-1 space-x-6 text-md font-semibold">
-                    <span>Junior Web Developer</span>
+                  <span className="flex justify-between items-center mt-1 space-x-6 text-md">
+                    <span className="font-semibold">Junior Web Developer</span>
                     <span>Colomiers, France</span>
                   </span>
-                  <p className="mt-1 text-justify text-xs-">
+                  <p className="mt-1">
                     L'objectif était de régler les problèmes de style pour le naviguateur Internet Explorer, et ce jusqu'à sa version 7.
                   </p>
-                  <div className="mt-2">
-                    <Tag color="green" classes="mr-1">IE</Tag>
-                    <Tag color="green" classes="mr-1">CSS</Tag>
+                  <div className="flex flex-wrap mt-1">
+                    <Tag color="green" classes="mr-1 mb-1">{skills.front.ie}</Tag>
+                    <Tag color="green" classes="mr-1 mb-1">{skills.front.css}</Tag>
                   </div>
                 </li>
 
                 <li className="mt-4">
-                  <span className="flex justify-between space-x-6 text-sm">
+                  <span className="flex justify-between items-center">
                     <a
                       href="https://www.univers-cites.fr/2013/04/26/restez-connectes-avec-lappli-neventy/"
                       target="_blank"
@@ -332,28 +400,29 @@ export default function Home() {
                     >
                       <strong className="text-xl">Neventy</strong>
                     </a>
-                    <span className="space-x-1">
+                    <span className="space-x-1 font-semibold">
                       <span>01/2013</span>
                       <span>-</span>
                       <span>06/2013</span>
                       <span>[stage]</span>
                     </span>
                   </span>
-                  <span className="flex justify-between mt-1 space-x-6 text-md font-semibold">
-                    <span>Front-End Developer</span>
+                  <span className="flex justify-between items-center mt-1 space-x-6 text-md">
+                    <span className="font-semibold">Front-End Developer</span>
                     <span>Toulouse, France</span>
                   </span>
-                  <p className="mt-1 text-justify text-xs-">
+                  <p className="mt-1">
                     Développement de fonctionnalités sur un site web permettant aux utilisateurs de trouver facilement des évènements proches d'eux.
                   </p>
-                  <div className="mt-2">
-                    <Tag color="green" classes="mr-1">JQuery</Tag>
-                    <Tag color="green" classes="mr-1">CSS</Tag>
+                  <div className="flex flex-wrap mt-1">
+                    <Tag color="red" classes="mr-1 mb-1">{skills.base.js}</Tag>
+                    <Tag color="green" classes="mr-1 mb-1">{skills.front.jquery}</Tag>
+                    <Tag color="green" classes="mr-1 mb-1">{skills.front.css}</Tag>
                   </div>
                 </li>
 
                 <li className="mt-4">
-                  <p className="flex justify-between space-x-6 text-sm">
+                  <p className="flex justify-between items-center">
                     <a
                       href="https://www.linkedin.com/company/actemiumtoulouserobotique&automation/"
                       target="_blank"
@@ -361,30 +430,30 @@ export default function Home() {
                     >
                       <strong className="text-xl">Actemium Robotique & Automation</strong>
                     </a>
-                    <span className="space-x-1">
+                    <span className="space-x-1 font-semibold">
                       <span>01/2012</span>
                       <span>-</span>
                       <span>09/2012</span>
                       <span>[stage]</span>
                     </span>
                   </p>
-                  <p className="flex justify-between mt-1 space-x-6 text-md font-semibold">
-                    <span>System Developer</span>
+                  <p className="flex justify-between items-center mt-1 space-x-6 text-md">
+                    <span className="font-semibold">System Developer</span>
                     <span>Toulouse, France</span>
                   </p>
-                  <p className="mt-1 text-justify text-xs-">
+                  <p className="mt-1">
                     Stage de fin de DUT, avec pour objectif le portage d'une application de gestion de machines virtuelles en Python depuis une base en VBA, via du parsing de fichiers XML et de commandes DOS.
                   </p>
-                  <div className="mt-2">
-                    <Tag color="red" classes="mr-1">VBA</Tag>
-                    <Tag color="red" classes="mr-1">Python</Tag>
-                    <Tag color="red" classes="mr-1">XML</Tag>
-                    <Tag color="black" classes="mr-1">VirtualBox</Tag>
+                  <div className="flex flex-wrap mt-1">
+                    <Tag color="red" classes="mr-1 mb-1">{skills.miscellaneous.vba}</Tag>
+                    <Tag color="red" classes="mr-1 mb-1">{skills.miscellaneous.python}</Tag>
+                    <Tag color="red" classes="mr-1 mb-1">{skills.miscellaneous.xml}</Tag>
+                    <Tag color="black" classes="mr-1 mb-1">{skills.miscellaneous.virtualbox}</Tag>
                   </div>
                 </li>
 
                 <li className="mt-4">
-                  <span className="flex justify-between space-x-6 text-sm">
+                  <span className="flex justify-between items-center">
                     <a
                       href="https://www.linkedin.com/company/utilib/"
                       target="_blank"
@@ -392,37 +461,39 @@ export default function Home() {
                     >
                       <strong className="text-xl">Utilib</strong>
                     </a>
-                    <span className="space-x-1">
+                    <span className="space-x-1 font-semibold">
                       <span>01/2012</span>
                       <span>-</span>
                       <span>03/2012</span>
                       <span>[stage]</span>
                     </span>
                   </span>
-                  <span className="flex justify-between mt-1 text-md font-semibold">
-                    <span>Full-Stack JS Developer</span>
+                  <span className="flex justify-between items-center mt-1 text-md">
+                    <span className="font-semibold">Full-Stack JS Developer</span>
                     <span>Labège, France</span>
                   </span>
-                  <p className="mt-1 text-justify text-xs-">
+                  <p className="mt-1">
                     Développement de fonctionnalités sur un site web permettant le prêt d'objets entre voisins.
                   </p>
-                  <div className="mt-2">
-                    <Tag color="green" classes="mr-1">JQuery</Tag>
-                    <Tag color="blue" classes="mr-1">Express</Tag>
-                    <Tag color="purple" classes="mr-1">MongoDB</Tag>
+                  <div className="mt-1">
+                    <Tag color="red" classes="mr-1 mb-1">{skills.base.js}</Tag>
+                    <Tag color="green" classes="mr-1 mb-1">{skills.front.jquery}</Tag>
+                    <Tag color="blue" classes="mr-1 mb-1">{skills.back.express}</Tag>
+                    <Tag color="blue" classes="mr-1 mb-1">{skills.dbs.mongo}</Tag>
+                    <Tag color="black" classes="mr-1 mb-1">{skills.miscellaneous.trello}</Tag>
                   </div>
                 </li>
 
               </ul>
             </section>
 
-            <Separator />
+            <Separator classes="mt-6"/>
 
             <section>
-              <h2 className="text-2xl mt-6 font-bold">Éducation</h2>
-              <ul className="mt-2">
-                <li className="">
-                  <p className="flex justify-between space-x-6 text-sm">
+              <h2 className="text-2xl font-bold">Éducation</h2>
+              <ul className="">
+                <li className="mt-4">
+                  <p className="flex justify-between">
                     <a
                       href="https://www.supinfo.com/"
                       target="_blank"
@@ -430,26 +501,27 @@ export default function Home() {
                     >
                       <strong className="text-xl">SUPINFO</strong>
                     </a>
-                    2012 - 2015
+                    <span className="text-md font-semibold">2012 - 2015</span>
                   </p>
-                  <p className="flex justify-between font-semibold">
-                    <span className="text-md">Master 2</span>
+                  <p className="flex justify-between">
+                    <span className="text-md font-semibold">Master 2</span>
                     <span>Toulouse, France</span>
                   </p>
                 </li>
-                <li className="pt-2">
-                  <p className="flex justify-between space-x-6 text-sm">
+
+                <li className="mt-4">
+                  <p className="flex justify-between">
                     <a
                       href="https://www.iut-blagnac.fr/fr/"
                       target="_blank"
                       className="text-purple-600 hover:underline dark:text-purple-300"
                     >
-                      <strong className="text-xl">University Institute of Technology</strong>
+                      <strong className="text-xl">IUT de Blagnac</strong>
                     </a>
-                    <span>2010-2012</span>
+                    <span className="text-md font-semibold">2010-2012</span>
                   </p>
-                  <p className="flex justify-between font-semibold">
-                    <span className="text-md">University diploma in computer technology</span>
+                  <p className="flex justify-between">
+                    <span className="text-md font-semibold">DUT Informatique</span>
                     <span>Blagnac, France</span>
                   </p>
                 </li>

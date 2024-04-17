@@ -13,7 +13,8 @@ const Separator = ({
   return (
     <div
       className={clsx(
-        'h-px my-4 bg-black dark:bg-white',
+        // 'h-px my-4 bg-black dark:bg-white',
+        'inline-block w-full my-4 border-t-2 border-black dark:border-white ',
         classes,
       )}
       {...props}
